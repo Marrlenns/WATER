@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+    {% for i in clients_list %}
+        <div>{{ i.name }} ordered {{ i.bottles_ordered }} bottles</div>
+        <div>{{ i.address }}</div>
+
+    {% endfor %}
+</body>
+</html>
