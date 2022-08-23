@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Clients</title>
-</head>
-<body>
-    {% for i in clients_list %}
-        <div>{{ i.name }} ordered {{ i.bottles_ordered }} bottles</div>
+{% extends 'base.html' %}
+<link rel="stylesheet" href="style.css">
+{% block page %}
+    {% for client in clients_list %}
+        <div>{{ client.name }} ordered {{ client.bottles_ordered }} bottles</div>
         <div>{{ i.address }}</div>
-
+        {% if client.photo %}
+            <br/>
+            <img height=100px src={{ client.photo.url }}>
+        {% endif %}
     {% endfor %}
-</body>
-</html>
+{% endblock %}

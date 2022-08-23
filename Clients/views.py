@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 from .models import Client
 
 def contacts(request):
-    return HttpResponse("<h1>Тел.: 0706257085   ||  0707702072  ||  0999668392</h1>")
+    return render(request, "contacts.html")
 
 def info(request):
     return render(request, "info.html")
