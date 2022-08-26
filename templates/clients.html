@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../Clients/static/style.css">
 {% block page %}
     {% for client in clients_list %}
         <div>{{ client.name }} ordered {{ client.bottles_ordered }} bottles</div>
