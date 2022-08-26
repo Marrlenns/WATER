@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Clients.views import contacts, info, clients_list
+from clients.views import contacts, info, clients_list, makers_list
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacts/', contacts),
     path('info/', info),
-    path('clients/', clients_list)
+    path('clients/', clients_list),
+    path('makers/', makers_list),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
