@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Client, Order, Bottle
+from .models import Client, Order
 
 # admin.site.register(Client)
 
@@ -10,7 +10,7 @@ class ClientAdmin(admin.ModelAdmin):
     list_display = ['name', 'address', 'bottles_ordered', 'user']
     list_editable = ['bottles_ordered']
     fields = ['user', 'name', 'address', 'active', 'bottles_ordered', 'photo']
-    readonly_fields = ['address', 'bottles_ordered']
+    # readonly_fields = ['bottles_ordered']
 
 
 admin.site.register(Client, ClientAdmin)
@@ -21,8 +21,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ['name', 'contacts', 'created_at', 'finished']
     list_editable = ['contacts', 'finished']
     fields = ['name', 'contacts', 'created_at', 'updated_at', 'description', 'finished']
-    readonly_fields = ['created_at', 'updated_at']
+    readonly_fields = ['contacts', 'created_at', 'updated_at']
 
 
 admin.site.register(Order, OrderAdmin)
-admin.site.register(Bottle)

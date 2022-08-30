@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-<link rel="stylesheet" href="../clients/static/style.css">
 {% block page %}
     {% for client in clients_list %}
-        <div>{{ client.name }} ordered {{ client.bottles_ordered }} bottles</div>
-        <div>{{ i.address }}</div>
+        <div>
+            <a href="/client/{{ client.id }}">{{ client.name }}</a>
+        </div>
         {% if client.photo %}
             <br/>
             <img height=100px src={{ client.photo.url }}>

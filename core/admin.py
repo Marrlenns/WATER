@@ -14,7 +14,7 @@ admin.site.register(Bottle, BottleAdmin)
 
 class BottleCountAdmin(admin.ModelAdmin):
     model = BottlesCount
-    list_display = ['bottle', 'count', 'order']
+    list_display = ['order', 'bottle', 'count']
     list_editable = ['count']
     fields = ['bottle', 'count', 'order']
 

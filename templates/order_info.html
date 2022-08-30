@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block page %}
+    <h3>Информация о заказе</h3>
+    <div>Имя: {{ order.name }}</div>
+    <div>Контакты: {{ order.contacts }}</div>
+    <div>Дата и время заказа: {{ order.created_at }}</div>
+    <div>Описание:
+        {% if order.description %}
+            {{ order.description }}
+        {% else %}
+            {{ None }}
+        {% endif %}
+    </div>
+{% endblock %}

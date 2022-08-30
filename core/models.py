@@ -10,8 +10,7 @@ class Bottle(models.Model):
     expired = models.BooleanField(default=True)
 
     orders = models.ManyToManyField(
-        to=Order,
-        null=True, blank=True,
+        to=Order, blank=True,
         verbose_name='Orders',
         related_name='bottles'
     )

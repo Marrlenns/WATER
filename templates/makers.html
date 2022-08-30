@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bottle</title>
-</head>
-<body>
-    {% for bottle in bottles_list %}
+{% extends 'base.html' %}
+{% block page %}
+    <br>
+    <br>
+    <br>
+    <div>НАШИ ПРОИЗВОДИТЕЛИ:</div>
+    <br>
+   {% for bottle in bottles_list %}
         <div>{{ bottle.maker }}</div>
+       <br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
