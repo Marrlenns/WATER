@@ -15,7 +15,6 @@ urlpatterns = [
     # path('order/create/', create_order, name="create-order"),
     path('order/create/', order_djangoform, name="order-djangoform"),
     path('orders/', orders_list, name='orders-list'),
-    # path('orders/upadte')
     path('order/<int:id>/', order_detail, name="order-detail"),
     path('order/update/<int:id>/', order_update, name="order-update"),
     path('order/delete/<int:id>/', order_delete, name="order-delete"),
