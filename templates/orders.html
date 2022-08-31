@@ -2,7 +2,11 @@
 {% block page %}
     {% for order in orders_list %}
         <div>Имя заказчика:</div>
-        <div><a href="/order/{{ order.id }}">{{ order.name }}</a></div>
+        <div>
+            <a href="/order/{{ order.id }}">{{ order.name }}</a> - |
+            <a href="/order/update/{{ order.id }}">изменить </a>  |
+            <a href="/order/delete/{{ order.id }}">удалить</a>
+        </div>
         <br>
     {% endfor %}
 {% endblock %}
