@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block page %}
-    {% for client in clients_list %}
+    {% for client in object_list %}
         <div>
             <a href="/client/{{ client.id }}">{{ client.name }}</a>
         </div>

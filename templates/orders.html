@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block page %}
-    {% for order in orders_list %}
+    {% for order in object_list %}
         <div>Имя заказчика:</div>
         <div>
             <a href="/order/{{ order.id }}">{{ order.name }}</a> - |

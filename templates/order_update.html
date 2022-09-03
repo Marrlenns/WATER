@@ -2,7 +2,7 @@
 {% block page %}
     <form method="POST">
         {% csrf_token %}
-        {{ order.as_p }}
+        {{ form.as_p }}
         <button>Update</button>
     </form>
 {% endblock %}
