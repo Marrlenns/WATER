@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block page %}
     {% for order in object_list %}
-{#        {% if order.name == user.name %}#}
+        {% if order.name == user.username %}
             <div>Имя заказчика:</div>
             <div>
                 <a href="/order/{{ order.id }}">{{ order.name }}</a> - |
                 <a href="/order/update/{{ order.id }}"><button class="btn btn-info">изменить</button> </a>  |
                 <a href="/order/delete/{{ order.id }}">удалить</a>
             </div>
-{#        {% endif %}#}
+        {% endif %}
         <br>
     {% endfor %}
 {% endblock %}
