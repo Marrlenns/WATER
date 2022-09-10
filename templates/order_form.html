@@ -4,6 +4,7 @@
     <form method="POST">
         {% csrf_token %}
         <div><input name="name" type="text" placeholder="Your Name"></div>
+        <div><input name="address" type="text" placeholder="Your Address"></div>
         <div><input name="contacts" type="text" placeholder="Contacts"></div>
         <div><textarea name="description" cols="30" rows="10" placeholder="Description"></textarea></div>
         <div><button>Send</button></div>

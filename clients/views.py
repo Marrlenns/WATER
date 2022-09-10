@@ -157,11 +157,25 @@ class CreateOrderDjangoView(CreateView):
     fields = ['name', 'contacts', 'description']
     success_url = '/order/'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        context['our_number'] = 7
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data()
+    #     context['our_number'] = 7
+    #     return context
 
+
+class CreateOrderView(View):
+    def post(self, request):
+        data = request.POST
+        order = Order()
+        order.name = data["name"]
+        order.address = data["address"]
+        order.contacts = data["contacts"]
+        order.descriptions = data["description"]
+        order.save()
+        return HttpResponse("Форма обработана", )
+
+    def get(self, request):
+        return render(request, 'order_form.html')
 
 # def order_delete(request, id):
 #     context = {}
