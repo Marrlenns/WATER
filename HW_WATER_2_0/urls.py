@@ -3,11 +3,12 @@ from django.urls import path
 from clients.views import *
 from django.conf import settings
 from django.conf.urls.static import static
+from clients.forms import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacts/', contacts),
-    path('info/', info),
+    path('', info),
     path('makers/', MakersListView.as_view()),
     path('clients/', ClientListView.as_view(), name='clients-list'),
     path('client/<int:pk>/', ClientDetailView.as_view(), name="client-detail"),
@@ -18,6 +19,9 @@ urlpatterns = [
     path('order/<int:pk>/', OrderDetailView.as_view(), name="order-detail"),
     path('order/update/<int:pk>/', OrderUpdateView.as_view(), name="order-update"),
     path('order/delete/<int:pk>/', OrderDeleteView.as_view(), name="order-delete"),
+    path('register/', register, name="register"),
+    path('login/', LoginUser.as_view(), name="login"),
+    path('logout/', logout_user, name="logout-user")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

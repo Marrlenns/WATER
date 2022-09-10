@@ -1,6 +1,7 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.db import models
 from django.contrib.auth.models import User
-
+from django import forms
 
 class Client(models.Model):
     user = models.OneToOneField(to=User, on_delete=models.SET_NULL, null=True, blank=True, related_name='client')
@@ -30,3 +31,15 @@ class Order(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class UserRegisterForm(UserCreationForm):
+    name = forms.CharField(label = 'Имя')
+    username = forms.CharField(label = "Никнейм", widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(label = "Пароль", widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2 = forms.CharField(label = "Повторите пароль", widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+    class Meta:
+        model = User
+        fields = ('name', 'username', 'password1', 'password2')
+

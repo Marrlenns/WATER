@@ -1,9 +1,11 @@
-from django.shortcuts import render, HttpResponse
-from .models import Client, Order
+from django.contrib.auth import login, logout
+from django.contrib.auth.views import LoginView
+from django.shortcuts import render, HttpResponse, redirect
+from .models import Client, Order, UserRegisterForm
 from core.models import Bottle
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import OrderForm, OrderUpdateForm, OrderDeleteForm, ClientForm
+from .forms import OrderForm, OrderUpdateForm, OrderDeleteForm, ClientForm, LoginUserForm
 
 
 def contacts(request):
@@ -194,3 +196,32 @@ class OrderDeleteView(DeleteView):
     template_name = 'order_delete.html'
     fields = ['name', 'contacts', 'description']
     success_url = '/order/'
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('/')
+        else:
+            return HttpResponse("Error")
+    else:
+        form = UserRegisterForm()
+    return render(request, 'register.html', {'form' : form})
+
+
+class LoginUser(LoginView):
+    form_class = LoginUserForm
+    template_name = "login.html"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # c_def = self.get_user_context(title="Авторизация")
+        return dict(list(context.items()))
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')

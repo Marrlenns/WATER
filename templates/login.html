@@ -1,0 +1,19 @@
+<body style="height: 150%">
+    {% extends 'base.html' %}
+    {% block page %}
+    {% load bootstrap5 %}
+    <h1>{{title}}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-4 offset-4">
+                <h1>Войти</h1>
+                <div class="form-floating mb-3 mt-3">
+                    {% bootstrap_form form %}
+                </div>
+                    <button class="btn btn-info" type="submit">Войти</button>
+            </div>
+        </div>
+    </form>
+    {% endblock %}
+</body>
